@@ -14,10 +14,10 @@ Table[Divisors[n! - 1][[2]], {n, 3, 20}]
 \end{lstlisting}
 \item Der Satz von Wilson lautet $ p \text{ prim} \Leftrightarrow p \mid (p-1)! + 1 $.
 Insbesondere teilt offensichtlich auch keine Zahl kleiner als $p$ die Zahl $  (p-1)! + 1 $. Desweiteren
-teilt für $p \geq 5$ $p$ auch $ (p-1)! -  p + 1$  und $p$ ist weiterhin der kleinste Primteiler.
+teilt für $p \geq 5$ $p$ auch $ (p-1)! -  p + 1$.
 \[ p \mid (p-1)! - p + 1 = ((p-2)! - 1)(p-1) \]
-$p \nmid p-1$, also muss $p \mid (p-2)! - 1 $ gelten. Auf Grund der obigen Betrachtung
-ist $p$ auch wie gewünscht der kleinste Primteiler.
+$p \nmid p-1$, also muss $p \mid (p-2)! - 1 $ gelten. Da $(p-2)!-1$ von keiner Zahl $\leq p-2$ geteilt wird,
+$p-1$ keine Primzahl ist, ist auch $p$ weiterhin wie gewünscht der kleinste Primteiler.
 \end{enumerate}
 
 \section*{Aufgabe 4}
