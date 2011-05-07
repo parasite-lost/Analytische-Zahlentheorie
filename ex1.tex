@@ -1,6 +1,56 @@
 \section*{Aufgabe 1}
+\begin{enumerate}[(1)]
+\item
+$\gcd(d,a) = 1$ bedeutet, dass in $a$ keiner der Primteiler von $d$ vorkommt. Mit $d \mid ab$ folgt aber, dass alle Primteiler von $d$ mit ihrer Vielfachheit in $ab$ vorkommen. Also müssen diese in $b$ enthalten sein, also $d \mid b$.
+
+\item
+Für ein $d \in \mathbb{N}$ und alle $a, b \in \mathbb{N}$ gelte $d \nmid a, d \mid ab \Rightarrow d \mid b$.
+
+Sei $d=1$:
+
+Es gilt $1 \mid a$ für alle $a \in \mathbb{N}$. Die Voraussetzungen der Implikation sind also nicht erfüllt. Hier ist also ein Fehler in der Aufgabenstellung.
+
+Sei $d$ zusammengesetzt:
+
+Dann gibt es $a$ mit $d \nmid a$, wobei jedoch $a$ und $d$ gemeinsame Primteiler haben, also $d = p \cdot d'$ und $a = p \cdot a'$, hierbei sei $p$ das Produkt aller gemeinsamen Primteiler.
+Mit $ d \mid ab$ gilt damit $b = d' \cdot b'$; es gibt ein $b$ für das $b'$ und $d$ keine gemeinsamen Primteiler hat, damit gilt $d \mid ab = p a' d' b' = d a' b'$, jedoch nicht $d \mid b$. Also gilt die Implikation für zusammengesetzte $d$ nicht für alle $a,b$.
+
+Sei $d$ prim:
+
+Dann gilt $\gcd(d,a) = 1$ und die Situation ist wie in (1). 
+
+Damit gilt die Behauptung (teilweise).
+\end{enumerate}
+
 
 \section*{Aufgabe 2}
+\[ \frac{3^{4n +2}-1}{8} = \frac{(3^{2n+1} - 1)(3^{2n+1}+1)}{8} = \frac{(3 \cdot 9^n - 1)(3 \cdot 9^n+1)}{8}\]
+Da $9 \equiv 1 \bmod 4$ gilt, ist auch $9^n \equiv 1 \bmod 4$. Somit ist 
+\[ 3 \cdot 9^n - 1 \equiv 3 - 1 \equiv 2 \mod 4 \]
+\[ 3 \cdot 9^n + 1 \equiv 3 + 1 \equiv 0 \mod 4 \]
+Damit ist 
+\[  \frac{(3 \cdot 9^n - 1)(3 \cdot 9^n+1)}{8} = \frac{3 \cdot 9^n - 1}{2} \cdot \frac{3 \cdot 9^n + 1}{4} \]
+ein Produkt zweier natürlicher Zahlen.
+
+Damit bleibt noch zu zeigen, dass beide Faktoren ungerade sind.
+Angenommen der erste Faktor sei gerade: 
+\[  \frac{3 \cdot 9^n - 1}{2} \equiv 0 \mod 2 \]
+Dann gilt:
+\[  \frac{3 \cdot 9^n}{2} = 2\cdot x + \frac{1}{2} \]
+\[ 3 \cdot 9^n = 4\cdot  x + 1 \]
+mit einem $x \in \mathbb{N} $. Da aber $3 \cdot 9^n \equiv 3 \not\equiv 1 \equiv 4\cdot x + 1 \bmod 4$ gilt,
+führt dies zu einem Widerspruch.
+Angenommen der zweite Faktor sei gerade:
+\[ \frac{3 \cdot 9^n + 1}{4} \equiv 0 \mod 2\]
+Dann gilt:
+\[  \frac{3 \cdot 9^n}{4} = 2\cdot x + \frac{7}{4} \]
+\[ 3 \cdot 9^n = 8x + 7 \]
+mit einem $x \in \mathbb{N}$. Da aben $3 \cdot 9^n \equiv 3 \not\equiv 7 \equiv 8\cdot x + 7 \bmod 8$ gilt,
+führt dies zu einem Widerspruch.
+
+Somit sind beide Faktoren der Zahl ungerade und damit die Zahl selbst ungerade.
+Also ist $ \frac{3^{4n +2}-1}{8}$ eine ungerade zusammengesetzte natürliche Zahl.
+
 
 \section*{Aufgabe 3}
 \begin{enumerate}[(1)]
@@ -21,5 +71,34 @@ $p-1$ keine Primzahl ist, ist auch $p$ weiterhin wie gewünscht der kleinste Pri
 \end{enumerate}
 
 \section*{Aufgabe 4}
+\begin{enumerate}[(1)]
+\item
+$p_1\cdots p_{n-1} - 1 \equiv -1 \mod p_i$ für alle $ 1 \leq i \leq n-1$; diese Zahl ist also nicht durch eine der $n-1$ ersten Primzahlen teilbar.
+Da jede natürliche Zahl eine eindeutige Darstellung durch ihre Primteiler hat, muss es eine Primzahl $p_n \leq p_1\cdots p_{n-1} - 1$ geben, die in der Darstellung dieser Zahl als Primzahl vorkommt.
+Damit gilt die Behauptung.
+
+\item
+I.V.: $p_n \leq 2^{2^{n-1}}$ für alle $n \geq 1$.
+
+I.A.: $n = 1$, $p_n = p_1 = 2 \leq 2^{2^{n-1}} = 2^{2^0} = 2$
+
+I.S.: Gelte I.V. für ein $n \in \mathbb{N}$, dann folgt mit (1):
+\[ p_n \leq p_1 \cdots p_{n-1} - 1 = \prod_{k=1}^{n-1}{ 2^{2^{k-1}}} - 1 =  2^{\sum_{k=0}^{n-2}2^k} - 1 = 2^{\frac{1- 2^{n-1}}{1-2}} - 1 = 2^{2^{n-1}} - 1 \leq 2^{2^{n-1}}\]
+
+\item
+Mit (2) hat man für $ x= 2^{2^{n-1}} \geq p_n$ einen funktionalen Zusammenhang zwischen $x$ und $n$, sodass es mindestens n Primzahlen $\leq$ x gibt.
+
+Damit kann man folgende Funktion konstruieren:
+\[ \frac{\log 2^{2^{n-1}}}{\log 2} = 2^{n-1} \]
+\[ \frac{\log \frac{\log 2^{2^{n-1}}}{\log 2}}{\log 2} = \frac{\log\log 2^{2^{n-1}} - \log\log 2}{\log 2} = n-1 \]
+Mit $\log\log 2 < \log 2$ erhält man damit:
+\[ n+1 \geq \frac{\log\log{2^{2^{n-1}}}}{\log 2} \geq n \]
+Damit folgt sofort die Behauptung.
+
+
+\end{enumerate}
+
 
 \section*{Aufgabe 5}
+
+Für $n \geq 12$ sind auf jeden Fall die Zerlegungen $n = a + b = 4 + (n-4) = 6 + (n-6) = 8 + (n-8)$ möglich; $4, 6, 8$ sind zusammengesetzte Zahlen, $n-4, n-6, n-8$ könnten jedoch Primzahlen sein; da es jedoch keine weiteren Primzahldrillinge als $3, 5, 7$ gibt, erfüllt eine dieser Zerlegungen auf jeden Fall die gewünschten Bedingungen, wenn $n-8 > 3$ gilt, was mit $n \geq 12$ immer der Fall ist.
