@@ -1,0 +1,65 @@
+\section*{Aufgabe 11}
+\begin{enumerate}[(1)]
+
+\item Für $n \geq 0 $ gilt für aufeinanderfolgende Summanden in der angegebenen Summe:
+\[   \frac{2^{2^{k+1}}}{10^{2^{k+1}}} \cdot \frac{10^{2^{k}}}{2^{2^{k}}}  = \frac{2^{2^{k}}}{10^{2^{k}}} < \frac{1}{2^k} \]
+Damit erhält man mit Hilfe der Formel für die geometrische Reihe und der Aussage aus Aufgabe 4:
+\[ 10^{2^{n}} \cdot \sum_{k = n+1}^{\infty}{\frac{p_k}{10^{2^k}}} \leq 10^{2^{n}} \cdot  \sum_{k = n+1}^{\infty}{\frac{2^{2^k}}{10^{2^k}}} < 10^{2^{n}} \cdot  \frac{2^{2^{n+1}}}{10^{2^{n+1}}} \sum_{k=0}^{\infty} {\frac{1}{2^k}} =  10^{2^{n}} \cdot \frac{2^{2^{n+1}}}{10^{2^{n+1}}} \cdot \frac{1}{1 - \frac{1}{2}}  = \]
+\[ = 2 \cdot 10^{2^{n}} \cdot \frac{2^{2^{n+1}}}{10^{2^{n+1}}}  = 2 \cdot \frac{2^{2^n + 2^n}}{10^{2^{n+1} - 2^n}} = 2 \cdot \frac{2^{2^n} \cdot 2^{2^n}}{10^{2^n}} = 2 \cdot \frac{2^{2^n}}{5^{2^n}} < 1 \]
+Damit gilt:
+\[ \sum_{k = n+1}^{\infty}{\frac{p_k}{10^{2^k}}} < \frac{1}{10^{2^{n}}} \]
+
+\item Mit Aufgabenteil (1) erhält man:
+\[ \lfloor 10^{2^n} \alpha \rfloor = \lfloor \sum_{k=1}^{\infty} {p_k 10^{2^n - 2^k}} \rfloor = \lfloor \underbrace{\sum_{k=1}^{n} {p_k 10^{2^n - 2^k}}}_{\in \mathbb{N}}  + \underbrace{10^{2^n} \cdot \sum_{k=n+1}^{\infty} {\frac{p_k }{10^{2^k}}}}_{< 1 \text{ nach (1)}} \rfloor = \sum_{k=1}^{n} {p_k 10^{2^n - 2^k}}\]
+
+\item
+\[ \lfloor 10^{2^n}  \alpha   \rfloor  -   10^{2^{n-1}}  \lfloor 10^{2^{n-1}}  \alpha  \rfloor = \sum_{k=1}^{n} {p_k 10^{2^n - 2^k}}   -  10^{2^{n-1}} \sum_{k=1}^{n-1} {p_k 10^{2^{n-1} - 2^k}}  =  \]
+\[ =  \sum_{k=1}^{n} {p_k 10^{2^n - 2^k}}   -   \sum_{k=1}^{n-1} {p_k 10^{2^n - 2^k}} = p_n 10^{2^n - 2^n} = p_n \]
+\end{enumerate}
+
+
+\section*{Aufgabe 12}
+
+Für $m > n$ ist das Argument der Summe offensichtlich $= 0$. Somit sind nur noch die Summanden für $ 1 \leq m \leq n$ zu betrachten.
+Für $m = 1$ ist $ \lfloor \frac{n}{m} \rfloor - \lfloor \frac{n-1}{m} \rfloor = n - (n-1) = 1$, für $m = n$ erhält man $ \lfloor \frac{n}{m} \rfloor - \lfloor \frac{n-1}{m} \rfloor = 1 - 0 = 1$.
+Bleiben noch $2 \leq m \leq n-1$ zu betrachten.
+
+Sei $n$ prim. Dann gilt für jedes $m$, dass $n  \not\equiv 0 \bmod m $, also $n = k \cdot m + j$ mit $1 \leq j \leq m-1$ und $n-1 = k \cdot m + j - 1$.
+Damit folgt für $2 \leq m \leq n-1$: $ \lfloor \frac{n}{m} \rfloor - \lfloor \frac{n-1}{m} \rfloor = k - k = 0$.
+
+Sei $n$ zusammengesetzt. Dann existiert mindestens ein $2 \leq m_0 \leq n-1 $ mit $m_0 \mid n$, also $ n = k \cdot m_0 $ und $ n-1 = (k-1) \cdot m_0 + (m_0 - 1) $.
+Damit folgt: $ \lfloor \frac{n}{m} \rfloor - \lfloor \frac{n-1}{m} \rfloor = k - (k-1) = 1 $.
+
+$n$ ist also prim genau dann wenn alle Summanden der angegebenen Summe $= 0$ sind außer der Summanden für $m=1$ und $m= n$; diese sind $=1$; also gilt die Behauptung.
+
+\section*{Aufgabe 13}
+Für alle $x > 0$ und $\alpha > 0$ gilt, dass $ y := x^\alpha > 0$.
+Man betrachtet die Funktion $f(x^\alpha) = e \cdot \log x^\alpha - x^\alpha = f(y) = e \log y - y$; die Ableitungen sind:
+$f'( y ) = e y^{-1} -1$ und $f''(y) = -e y^{-2} $. Die erste Ableitung ist für $f'(y = e) = 0$, die zweite Ableitung ist immer $< 0$, für $y = e$ erhält man also ein Maximum.
+Also gilt $e\log y \leq y$. Damit folgt auch $e \log x^\alpha = e \alpha \log x \leq x^\alpha $ und so auch $ \log x \leq \frac{1}{e \alpha} x^\alpha$.
+
+
+
+\section*{Aufgabe 14}
+Es gilt:
+\[ D_n = \frac{1}{n}\sum_{k=1}^{n} ( p_{k+1} - p_k)  = \frac{1}{n} (p_{n+1} - p_1) \underset{(a)}{\sim} \frac{1}{n} (n+1) \log (n+1) \underset{(b)}{\sim} \log n \underset{(c)}{\sim} \log (n \log n) \underset{(d)}{\sim} \log p_n  \]
+\begin{enumerate}[(a)]
+
+\item Nach Primzahlsatz $  p_n \sim n \log n  $.
+
+\item 
+\[   \frac{\frac{1}{n} (n+1) \log (n+1)}{\log n} = \frac{\log (n+1)}{\log n} + \frac{\log (n+1)} {n \log n} \underset{n \rightarrow \infty}{\rightarrow} 1 + 0 = 1\]
+
+\item 
+\[   \frac{\log (n \log n)}{\log n} = \frac{\log n + \log \log n}{ \log n} = 1 + \frac{ \log \log n}{\log n} \underset{n \rightarrow \infty}{\rightarrow} 1 + 0 = 1 \]
+
+\item Nach Primzahlsatz.
+
+Da die $\sim$-Relation sowohl reflexiv als auch transitiv ist, gilt die Behauptung.
+\end{enumerate}
+
+\section*{Aufgabe 15}
+\begin{enumerate}[(1)]
+\item Für $(p, p+4, p+6, p+10, p+12, p+16) = (7, 11, 13, 17, 19, 23)$ sind alle Zahlen wie gewünscht prim.
+\item Ist $p = 5$ so ist $p+10$ keine Primzahl. Ist $p \equiv 1 \bmod 5$, so ist $p+4$ durch $5$ teilbar. Ist $p \equiv 2 \bmod 5$, so ist $p+18$ durch $5$ teilbar. Ist $p \equiv 3 \bmod 5$, so ist $p+12$ durch $5$ teilbar. Ist $p \equiv 4 \bmod 5$, so ist $p+6$ durch $5$ teilbar. Also sind für alle Zahlen p nie die angegebenen Zahlen gleichzeitig prim.
+\end{enumerate}
